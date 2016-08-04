@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link rel="stylesheet" href="../styles/main.css" charset="utf-8">
+  <title>{{genre}}</title>
+</head>
+<body>
+
+  <h1>{{genre}} books</h1>
+
+  {{#each books}}
+  <p>Book: <img class="book-img" src= "/images/book.png"/>{{book}}</p> <!-- <img src = "/images/{{image}}"/>-->
+  <!--<p><img src="/images/{{image}}" alt="{{book}}"/> <a href="{{goodreads}}">{{book}}</a></p>-->
+
+
+  {{/each}}
+</body>
+
+</html>

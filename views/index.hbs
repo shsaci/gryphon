@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link rel="stylesheet" href="../styles/main.css" charset="utf-8">
+  <title>Genre results</title>
+</head>
+<body>
+  <img src="/images/gryphonSmall.jpg" alt="gryphon book finder"/>
+  {{#each genres}}
+  <p><a class="button" href="/genre/{{id}}">{{genre}}</a></p>
+  {{/each}}
+</body>
+</html>
