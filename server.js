@@ -13,7 +13,7 @@ app.set('view engine', 'hbs')
 app.set('views', __dirname + '/views')
 app.use(express.static('public'))
 
-// Display all Genres
+// Display all Genres 
 app.get('/', function (req, res) {
   var data = require ('./json/genres.json')//delete and replace with knex
   res.render('index', {genres: data})
@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 app.get('/genre/:genre_id', function (req, res) {
   var data = require ('./json/books.json')//delete and replace with knex
   res.render('booksbygenre', {genre: "TEST", books: data})
-  //change TEST to genre name  write database query to give genre name given the database genre_id
+  //change TEST to genre name  write database query to give genre name - given the database genre_id
 })
 
 var PORT = 3000
