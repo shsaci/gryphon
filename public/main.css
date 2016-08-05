@@ -37,9 +37,6 @@ a {
   text-decoration: none;
   size:8rem
 }
-.border {
-  margin-left: 100px;
-}
 
 .imagesize {
   height:500px;
@@ -64,7 +61,7 @@ a {
 }
 
 .moreinfo {
-  font-size: 1.5rem 
+  font-size: 1.5rem
 }
 
 .footer {
