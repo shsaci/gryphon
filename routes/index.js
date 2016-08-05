@@ -18,8 +18,10 @@ function get (req, res) {
   .join('books', 'genres.id', '=', 'books.genre_id')
   .select()
   .then(function (books) {
-    console.log(books[0].genre);
-    res.render('results', {books: books})
+    var gen = books[0].genre
+    var obj = {genre: gen, books: books}
+    console.log(obj);
+    res.render('results', obj)
   })
   .catch(function (err) {
     res.status(500).send('Database error ' + err.message)
