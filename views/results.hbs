@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="../normalize.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="../skeleton.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="../main.css" media="screen" charset="utf-8">
+</head>
+<body>
+  {{#each books}}
+  <div class="">
+    <h2>{{title}}</h2>
+    <img src="../{{cover_art}}" alt="" />
+    <p>
+      {{synopsis}}
+    </p>
+    <a href="{{title}}">{{title}}</a>
+  </div> <br>
+  {{/each}}
+</body>
+</html>

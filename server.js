@@ -1,32 +1,28 @@
-var express = require('express')
-//var development = require('./knexfile').development
-//var knex = require('knex')(development)
 var bodyParser = require('body-parser')
+var express = require('express')
 var hbs = require('express-handlebars')
-// var routes = require('routes.js')
+var path = require('path')
+
+var index = require('./routes/index')
+
+var PORT = process.env.PORT || 3000
 
 var app = express()
-
-app.use(bodyParser.urlencoded())
 app.engine('hbs', hbs())
 app.set('view engine', 'hbs')
-app.set('views', __dirname + '/views')
+app.set('views', path.join(__dirname, 'views'))
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// Static resources
 app.use(express.static('public'))
 
-// Display all Genres 
-app.get('/', function (req, res) {
-  var data = require ('./json/genres.json')//delete and replace with knex
-  res.render('index', {genres: data})
-})
-
-app.get('/genre/:genre_id', function (req, res) {
-  var data = require ('./json/books.json')//delete and replace with knex
-  res.render('booksbygenre', {genre: "TEST", books: data})
-  //change TEST to genre name  write database query to give genre name - given the database genre_id
-})
-
-var PORT = 3000
+app.get('/', index.home)
+app.get('/results/:id', index.get)
+// app.get('/info/:id', index.info)
+// app.get('/error', index.error)
+// app.post('/send/:id', index.update)
+// app.post('/send', index.send)
 
 app.listen(PORT, function () {
-  console.log('CLEANING UP ALL OF THE THINGS THAT WE FIND... ON PORT', PORT)
+  console.log('Listening on port', PORT)
 })
