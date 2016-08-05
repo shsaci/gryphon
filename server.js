@@ -18,10 +18,6 @@ app.use(express.static('public'))
 
 app.get('/', index.home)
 app.get('/results/:id', index.get)
-// app.get('/info/:id', index.info)
-// app.get('/error', index.error)
-// app.post('/send/:id', index.update)
-// app.post('/send', index.send)
 
 app.listen(PORT, function () {
   console.log('Listening on port', PORT)

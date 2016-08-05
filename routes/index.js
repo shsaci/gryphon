@@ -1,8 +1,6 @@
 var express = require('express')
 var development = require('../knexfile').development
 var knex = require('knex')(development)
-// var jq = require('../public/jquery')
-var client = require('../public/client')
 
 module.exports = {
   home: home,
@@ -15,12 +13,12 @@ function home (req, res) {
 
 function get (req, res) {
   var id = req.params.id
-  console.log(id);
-  knex('books')
-  .select()
+  knex('genres')
   .where('genre_id', id)
+  .join('books', 'genres.id', '=', 'books.genre_id')
+  .select()
   .then(function (books) {
-    console.log(books);
+    console.log(books[0].genre);
     res.render('results', {books: books})
   })
   .catch(function (err) {
