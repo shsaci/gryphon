@@ -20,7 +20,7 @@ function get (req, res) {
   .then(function (books) {
     var gen = books[0].genre
     var obj = {genre: gen, books: books}
-    console.log(obj);
+    // console.log(obj);
     res.render('results', obj)
   })
   .catch(function (err) {
